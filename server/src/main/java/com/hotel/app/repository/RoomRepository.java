@@ -12,4 +12,5 @@ import com.hotel.app.entity.Room;
 public interface RoomRepository extends JpaRepository<Room, Integer> {
     
 
+    List<Room> findByAvailability(Availability availability);
 }
