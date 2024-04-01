@@ -1,4 +1,4 @@
-package com.hotel.app.entity;
+package com.hotel.app.model;
 
 import java.math.BigDecimal;
 import java.util.HashSet;

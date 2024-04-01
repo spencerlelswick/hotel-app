@@ -30,7 +30,7 @@ public class RestConfig implements RepositoryRestConfigurer {
 	@Override
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
 
-		exposeIds(config);
+//		exposeIds(config);
 
 		cors.addMapping(config.getBasePath() + "/**").allowedOrigins(allowedOrigins);
 	}
