@@ -7,19 +7,15 @@ const NavBar = () => {
       <div className='container mx-auto px-4'>
         <ul className='flex justify-between items-center py-4'>
           <li>
-            <NavLink exact to='/' activeClassName='text-blue-500'>
+            <NavLink exact to='/'>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to='/about' activeClassName='text-blue-500'>
-              About
-            </NavLink>
+            <NavLink to='/about'>About</NavLink>
           </li>
           <li>
-            <NavLink to='/rooms' activeClassName='text-blue-500'>
-              Rooms
-            </NavLink>
+            <NavLink to='/rooms'>Rooms</NavLink>
           </li>
         </ul>
       </div>

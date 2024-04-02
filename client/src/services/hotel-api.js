@@ -4,7 +4,7 @@ const ROOMS_URL = BASE_URL + '/rooms';
 export async function index() {
   const res = await fetch(ROOMS_URL, {
     method: 'GET',
-  });
+  })
 
   if (res.ok) {
     return res.json();
