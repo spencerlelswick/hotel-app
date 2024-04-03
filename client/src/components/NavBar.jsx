@@ -7,7 +7,7 @@ const NavBar = () => {
       <div className='container mx-auto px-4'>
         <ul className='flex justify-between items-center py-4'>
           <li>
-            <NavLink exact to='/'>
+            <NavLink exact='true' to='/'>
               Home
             </NavLink>
           </li>

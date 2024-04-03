@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { getAllRooms } from '../services/hotel-service';
+import { getAllRooms } from '../services/hotel-api';
 import RoomItem from '../components/RoomItem';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 
 const Rooms = () => {
-  const [roomsList, setRoomsList] = useState(null);
+  const [rooms, setRooms] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -15,18 +15,18 @@ const Rooms = () => {
 
   const getRoomData = async () => {
     try {
-      getAllRooms()
-        .then((data) => {
-          setRoomsList(data._embedded.rooms);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-          setError('Failed to fetch rooms.');
-          setLoading(false);
-        });
+      const response = await getAllRooms();
+
+      console.log(response);
+      if (response && Array.isArray(response)) {
+        setRooms(response);
+      } else {
+        setError('Unexpected response format');
+      }
+      setLoading(false);
     } catch (error) {
-      console.log(error);
+      setError(error.message);
+      setLoading(false);
     }
   };
 
@@ -55,7 +55,7 @@ const Rooms = () => {
             </tr>
           </thead>
           <tbody>
-            {roomsList.map((room) => (
+            {rooms.map((room) => (
               <RoomItem
                 key={room.roomNumber}
                 roomNumber={room.roomNumber}
